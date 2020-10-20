@@ -13,12 +13,14 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-        <h1><i class="fab fa-free-code-camp"></i> BADABING</h1>
+        <h1 class="text-center"><i class="fab fa-free-code-camp"></i> BADABING</h1>
         
-        <h3>Book your seat today!</h3>
+        <h3 class="text-center">Book your seat today!</h3>
         <hr>
-        <a href="/add"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-utensils"></i> Make a Reservation</button></a>
-        <a href="/api/tables"><button class="btn btn-danger btn-lg" id="search-btn"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
+        <div class="col text-center">
+            <a href="reserve.html"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-utensils"></i> Make a Reservation</button></a>
+            <a href="tables.html"><button class="btn btn-danger btn-lg" id="search-btn"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
+        </div>
         </div>
 
         <div class="card">
@@ -28,9 +30,9 @@
             <div class="card-body">
               <h2 id="name">Michael Scott</h2>
               <div id="seated">
-                <h3><strong>Guests:</strong> <span id="role">5</span></h3>
-                <h3><strong>Table Size</strong> <span id="age">Large</span></h3>
-                <h3><strong>Time at Table</strong> <span id="force-points">15 mins</span></h3>
+                <h3><strong>Guests:</strong> <span id="guests">5</span></h3>
+                <h3><strong>Table Size</strong> <span id="table">Large</span></h3>
+                <h3><strong>Time at Table</strong> <span id="wait">15 mins</span></h3>
               </div>
             </div>
           </div>
