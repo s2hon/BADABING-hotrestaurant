@@ -69,4 +69,24 @@
         </div>
       </div>
     </div>
-</div>
+    <script type="text/javascript">
+      
+      $("#reserve-btn").on("click", function(event) {
+        event.preventDefault();
+        var newTable = {
+          name: $("#name").val().trim(),
+          role: $("#phone").val().trim(),
+          age: $("#email").val().trim(),
+          age: $("#guestNumber").val().trim(),
+        };
+  
+        // Question: What does this code do??
+        $.post("/api/reservations", newTable)
+          .then(function(data) {
+            console.log("add.html", data);
+            alert("Adding reservation");
+          });
+      });
+    </script>
+</body>
+</html>
