@@ -29,12 +29,18 @@ app.get("/api/tables", function(req, res) {
 
 app.get("/api/waitlist", function(req, res) {
     return res.json(waitlist);
-  });
+});
 
-  app.post("/api/tables", function(req, res){
-      const newReservation = req.body
-     reservation.push(newReservation)
-  })
+app.post("/api/tables", function(req, res){
+    const newReservation = req.body
+    reservation.push(newReservation)
+});
+
+app.get("/api/clear", function(req, res){
+   reservation.length=0;
+   waitlist.length=0;
+   return res.json(reservation);
+})
 
   app.listen(PORT, function(){
       console.log("Listening on PORT " + PORT)
