@@ -37,4 +37,31 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      $("#search-btn").on("click", function() {
+        var searchedReservation = $("#table-search").val().trim();
+  
+        // Using a RegEx Pattern to remove spaces from searchedCharacter
+        // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+        searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
+  
+        $.get("/api/reservations" + searchedReservation, function(data) {
+          console.log(data);
+          if (data) {
+            $("#stats").show();
+            $("#name").text(data.name);
+            $("#phone").text(data.role);
+            $("#email").text(data.age);
+            $("#guestNumber").text(data.guestNumber);
+          } else {
+            $("#name").text(
+              "No results found, please search again");
+            $("#stats").hide();
+          }
+        });
+      });
+  
+    </script>
+</body>
+</html>
 
