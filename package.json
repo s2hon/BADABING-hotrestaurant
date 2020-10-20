@@ -1,0 +1,26 @@
+{
+  "name": "BADABING-hotrestaurant",
+  "version": "1.0.0",
+  "description": "* Front-End     1. what UI elements are there?     index.html: reservation btn, view tables btn         footer: API Table Link/API Waitlist link     reservation.html: form with submit btn, home btn, view table btn         footer: API Table Link/API Waitlist link     table.html: cards with booked table info, reservation btn, home btn         footer: clear table/API Table Link/API Waitlist link     *each html with footer control panel*     2. what information does the user need?     link to website     Name, Phone#, EMail, ID     3. can we leverage any bootstrap components in our design     jumbotron, btn, form, card, icon",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "init": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s2hon/BADABING-hotrestaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s2hon/BADABING-hotrestaurant/issues"
+  },
+  "homepage": "https://github.com/s2hon/BADABING-hotrestaurant#readme"
+}
