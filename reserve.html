@@ -82,17 +82,21 @@
       event.preventDefault();
       var newTable = {
         name: $("#name").val().trim(),
-        role: $("#phone").val().trim(),
-        age: $("#email").val().trim(),
-        age: $("#guestNumber").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        guestNumber: $("#guestNumber").val().trim(),
       };
 
       // Question: What does this code do??
-      $.post("/api/reservations", newTable)
+      $.post("/api/tables", newTable)
         .then(function(data) {
-          console.log("add.html", data);
           alert("Adding reservation");
         });
+      
+      $("#name").val("")
+      $("#phone").val("")
+      $("#email").val("")
+      $("#guestNumber").val("")
       });
     </script>
 </body>
