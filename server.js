@@ -34,12 +34,12 @@ app.get("/api/waitlist", function(req, res) {
 
 
 app.post("/api/tables", function(req, res){
-    const newReservation = req.body;
+    const newTable = req.body;
     if (reservation.length <5){
-      reservation.push(newReservation)
+      reservation.push(newTable)
     }
     else {
-      waitlist.push(newReservation)
+      waitlist.push(newTable)
     }
 });
 

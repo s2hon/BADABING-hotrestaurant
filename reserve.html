@@ -21,8 +21,8 @@
         <h3 class="text-center">Book your seat today!</h3>
         <hr>
         <div class="col text-center">
-          <a href="/tables"><button class="btn btn-danger btn-lg" id="search-btn"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
-          <a href="/"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-home"></i> Go Home</button></a>
+          <a href="/tables"><button class="btn btn-danger btn-lg tables"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
+          <a href="/"><button class="btn btn-danger btn-lg home"><i class="fas fa-home"></i> Go Home</button></a>
         </div>
         </div>
     
@@ -78,13 +78,13 @@
       
     <script type="text/javascript">
       
-    $("#reserve-btn").on("click", function(event) {
+    $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var newTable = {
         name: $("#name").val().trim(),
-        phone: $("#phone").val().trim(),
+        phone: $("#phone").val(),
         email: $("#email").val().trim(),
-        guestNumber: $("#guestNumber").val().trim(),
+        guestNumber: $("#guestNumber").val(),
       };
 
       // Question: What does this code do??
