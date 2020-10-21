@@ -21,8 +21,8 @@
         <h3 class="text-center">Book your seat today!</h3>
         <hr>
         <div class="col text-center">
-            <a href="reserve.html"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-utensils"></i> Make a Reservation</button></a>
-            <a href="tables.html"><button class="btn btn-danger btn-lg" id="search-btn"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
+          <a href="/tables"><button class="btn btn-danger btn-lg" id="search-btn"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
+          <a href="/"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-home"></i> Go Home</button></a>
         </div>
         </div>
     
@@ -69,23 +69,30 @@
         </div>
       </div>
     </div>
+
+    <footer>
+      <div class="container">
+        <a href="/api/tables" id="tableAPI">API Table Link</a> | <a href="/api/waitlist" id="waitAPI">API Wait List</a>
+      </div>
+    </footer>
+      
     <script type="text/javascript">
       
-      $("#reserve-btn").on("click", function(event) {
-        event.preventDefault();
-        var newTable = {
-          name: $("#name").val().trim(),
-          role: $("#phone").val().trim(),
-          age: $("#email").val().trim(),
-          age: $("#guestNumber").val().trim(),
-        };
-  
-        // Question: What does this code do??
-        $.post("/api/reservations", newTable)
-          .then(function(data) {
-            console.log("add.html", data);
-            alert("Adding reservation");
-          });
+    $("#reserve-btn").on("click", function(event) {
+      event.preventDefault();
+      var newTable = {
+        name: $("#name").val().trim(),
+        role: $("#phone").val().trim(),
+        age: $("#email").val().trim(),
+        age: $("#guestNumber").val().trim(),
+      };
+
+      // Question: What does this code do??
+      $.post("/api/reservations", newTable)
+        .then(function(data) {
+          console.log("add.html", data);
+          alert("Adding reservation");
+        });
       });
     </script>
 </body>

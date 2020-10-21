@@ -11,59 +11,76 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
-        <h1 class="text-center"><i class="fab fa-free-code-camp"></i> BADABING</h1>
-        
-        <h3 class="text-center">Book your seat today!</h3>
-        <hr>
-        <div class="col text-center">
-            <a href="reserve.html"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-utensils"></i> Make a Reservation</button></a>
-            <a href="tables.html"><button class="btn btn-danger btn-lg" id="search-btn"><i class="fas fa-pizza-slice"></i> View Tables</button></a>
-        </div>
-        </div>
+  <div class="container">
+      <div class="jumbotron">
+      <h1 class="text-center"><i class="fab fa-free-code-camp"></i> BADABING</h1>
+      
+      <h3 class="text-center">Book your seat today!</h3>
+      <hr>
+      <div class="col text-center">
+        <a href="/reserve"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-utensils"></i> Make a Reservation</button></a>
+        <a href="/"><button class="btn btn-danger btn-lg" id="add-btn"><i class="fas fa-home"></i> Go Home</button></a>
+      </div>
+      </div>
 
-        <div class="card">
-            <div class="card-header">
-              <h3><strong>Tables Seated</strong></h3>
-            </div>
-            <div class="card-body">
-              <h2 id="name">Michael Scott</h2>
-              <div id="seated">
-                <h3><strong>Guests:</strong> <span id="guests">5</span></h3>
-                <h3><strong>Table Size</strong> <span id="table">Large</span></h3>
-                <h3><strong>Time at Table</strong> <span id="wait">15 mins</span></h3>
-              </div>
+      <div class="card">
+          <div class="card-header">
+            <h3><strong>Tables Seated</strong></h3>
+          </div>
+          <div class="card-body">
+            <h2 id="name">Michael Scott</h2>
+            <div id="seated">
+              <h3><strong>Guests:</strong> <span id="guests">5</span></h3>
+              <h3><strong>Table Size</strong> <span id="table">Large</span></h3>
+              <h3><strong>Time at Table</strong> <span id="wait">15 mins</span></h3>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      $("#search-btn").on("click", function() {
-        var searchedReservation = $("#table-search").val().trim();
-  
-        // Using a RegEx Pattern to remove spaces from searchedCharacter
-        // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-        searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
-  
-        $.get("/api/reservations" + searchedReservation, function(data) {
-          console.log(data);
-          if (data) {
-            $("#stats").show();
-            $("#name").text(data.name);
-            $("#phone").text(data.role);
-            $("#email").text(data.age);
-            $("#guestNumber").text(data.guestNumber);
-          } else {
-            $("#name").text(
-              "No results found, please search again");
-            $("#stats").hide();
-          }
-        });
+  </div>
+
+  <footer>
+    <div class="container">
+      <a href="/api/clear" id="clearAPI">Clear Tables<a> | <a href="/api/tables" id="tableAPI">API Table Link<a> | <a href="/api/waitlist" id="waitAPI">API Wait List</a>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    $("#search-btn").on("click", function() {
+      var searchedReservation = $("#table-search").val().trim();
+
+      // Using a RegEx Pattern to remove spaces from searchedCharacter
+      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+      searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
+
+      $.get("/api/reservations" + searchedReservation, function(data) {
+        console.log(data);
+        if (data) {
+          $("#stats").show();
+          $("#name").text(data.name);
+          $("#phone").text(data.role);
+          $("#email").text(data.age);
+          $("#guestNumber").text(data.guestNumber);
+        } else {
+          $("#name").text(
+            "No results found, please search again");
+          $("#stats").hide();
+        }
       });
-  
-    </script>
+    });
+
+  function clearTable(){
+    const currentURL = window.location.origin;
+    $.ajax({url: currentURL + "/api/clear", method: "POST"})
+  };
+
+  $("#clearAPI").on('click', function(){
+		alert("Clearing...");
+		clearTable();
+		location.reload();
+	});
+
+  </script>
 </body>
 </html>
 
