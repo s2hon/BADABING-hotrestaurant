@@ -82,9 +82,9 @@
       event.preventDefault();
       var newTable = {
         name: $("#name").val().trim(),
-        phone: $("#phone").val(),
+        phone: $("#phonenumber").val().trim(),
         email: $("#email").val().trim(),
-        guestNumber: $("#guestNumber").val(),
+        guestNumber: $("#guests").val().trim(),
       };
 
       // Question: What does this code do??
@@ -94,9 +94,9 @@
         });
       
       $("#name").val("")
-      $("#phone").val("")
+      $("#phonenumber").val("")
       $("#email").val("")
-      $("#guestNumber").val("")
+      $("#guests").val("")
       });
     </script>
 </body>
